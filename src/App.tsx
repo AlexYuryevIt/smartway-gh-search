@@ -7,8 +7,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<SearchPage />} />
-        <Route path="/repository/:cardId" element={<Repository />} />
+        <Route path="/smartway-gh-search/" element={<SearchPage />} />
+        <Route
+          path="/smartway-gh-search/repository/:cardId"
+          element={<Repository />}
+        />
       </Routes>
     </Router>
   );
