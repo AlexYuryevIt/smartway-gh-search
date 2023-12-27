@@ -28,7 +28,7 @@ export const RepoCard: React.FC<TCardProps> = observer(({ card }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/repository/${card.id}`);
+    navigate(`/smartway-gh-search/repository/${card.id}`);
   };
 
   return (

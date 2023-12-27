@@ -13,7 +13,7 @@ export const Repository = observer(() => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/`);
+    navigate(`/smartway-gh-search/`);
   };
 
   if (!card) {
