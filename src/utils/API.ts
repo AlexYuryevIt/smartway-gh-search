@@ -6,7 +6,7 @@ export const getData = async (
   const base = "https://api.github.com";
   try {
     const response = await fetch(
-      `${base}/search/repositories?q=${title}&per_page=10`
+      `${base}/search/repositories?q=${title}&per_page=30`
     );
     const data = await response.json();
 
