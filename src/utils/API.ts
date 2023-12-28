@@ -2,7 +2,7 @@ import { TRepoCard } from "../components/RepoCard/TRepoCard";
 
 export const getData = async (
   title: string,
-  perPage: string
+  perPage: number
 ): Promise<{ items: TRepoCard[] }> => {
   const base = "https://api.github.com";
   try {

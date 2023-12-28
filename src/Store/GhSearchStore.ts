@@ -38,7 +38,7 @@ class GhSearchStore {
     this.title = event.currentTarget.value.trim();
   };
 
-  async loadRepositories(title: string, perPage: string) {
+  async loadRepositories(title: string, perPage: number) {
     this.isLoading = true;
     const data = await getData(title, perPage);
     runInAction(() => {
