@@ -1,13 +1,12 @@
 import { TRepoCard } from "../components/RepoCard/TRepoCard";
 
 export const getData = async (
-  title: string,
-  perPage: number
+  title: string
 ): Promise<{ items: TRepoCard[] }> => {
   const base = "https://api.github.com";
   try {
     const response = await fetch(
-      `${base}/search/repositories?q=${title}&per_page=${perPage}`
+      `${base}/search/repositories?q=${title}&per_page={30}`
     );
     const data = await response.json();
 
