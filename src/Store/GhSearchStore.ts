@@ -38,9 +38,9 @@ class GhSearchStore {
     this.title = event.currentTarget.value.trim();
   };
 
-  async loadRepositories(title: string) {
+  async loadRepositories(title: string, perPage: string) {
     this.isLoading = true;
-    const data = await getData(title);
+    const data = await getData(title, perPage);
     runInAction(() => {
       this.repositories = data.items;
       this.isLoading = false;
@@ -64,12 +64,6 @@ class GhSearchStore {
   handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
-
-  // handleCopy = async () => {
-  //   const text = this.title;
-  //   await clipboardCopy(text);
-  //   return text;
-  // };
 }
 
 export default new GhSearchStore();

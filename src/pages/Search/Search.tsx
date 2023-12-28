@@ -14,10 +14,11 @@ import { FormWrapper, RepositoriesWrapper, Wrapper } from "./SearchPageStyles";
 
 export const SearchPage = observer(() => {
   const [buttonTitle, setButtonTitle] = useState("Copy");
+  const [perPage, setPerpage] = useState<string>("30");
 
   useEffect(() => {
     const debouncedFetch = debounce(() => {
-      GhSearchStore.loadRepositories(GhSearchStore.title);
+      GhSearchStore.loadRepositories(GhSearchStore.title, perPage);
     }, 1000);
     if (GhSearchStore.title) {
       debouncedFetch();
@@ -26,6 +27,10 @@ export const SearchPage = observer(() => {
       debouncedFetch.cancel();
     };
   }, [GhSearchStore.title]);
+
+  const handlePerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setPerpage(event.target.value);
+  };
 
   const handleCopy = async () => {
     setButtonTitle("Copied");
@@ -54,6 +59,13 @@ export const SearchPage = observer(() => {
 
       <>
         <RepositoriesWrapper>
+          <select onChange={handlePerPageChange}>
+            <option value="10">10</option>
+            <option value="15">30</option>
+            <option value="50">50</option>
+            <option value="75">75</option>
+            <option value="100">100</option>
+          </select>
           <Wrapper>
             {GhSearchStore.isLoading ? <Loader /> : <RepositoriesList />}
             {GhSearchStore.repositories.length === 0 && "No repositories"}
