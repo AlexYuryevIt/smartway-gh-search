@@ -29,3 +29,13 @@ export const RepositoriesWrapper = styled.div`
     gap: 30px;
   }
 `;
+
+export const Selector = styled.select`
+  display: flex;
+`;
+
+export const SelectorWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
