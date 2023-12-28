@@ -5,7 +5,9 @@ export const getData = async (
 ): Promise<{ items: TRepoCard[] }> => {
   const base = "https://api.github.com";
   try {
-    const response = await fetch(`${base}/search/repositories?q=${title}`);
+    const response = await fetch(
+      `${base}/search/repositories?q=${title}&per_page=10`
+    );
     const data = await response.json();
 
     if (data.items.length === 0) {
